@@ -11,16 +11,23 @@ CON_SEC = ""
 CON_SEC_KEY = ""
 
 def getWeather():
-	weather = Weather()
-	now = datetime.datetime.now()
 
-	location = weather.lookup_by_location(city)
-	condition = location.condition()
-	region = location.location()
+	try:
+		weather = Weather()
+		now = datetime.datetime.now()
 
-	currentTime = now.strftime("%H:%M %m/%d/%Y")
+		location = weather.lookup_by_location(city)
+		condition = location.condition()
+		region = location.location()
 
-	return "It is currently " + condition['text'] + " and " + condition['temp'] + " Degrees Fahrenheit in #" + region['city'] + " ," + region['region'] + " at " + currentTime + " #Weather"
+		currentTime = now.strftime("%H:%M %m/%d/%Y")
+
+		message = "It is currently " + condition['text'] + " and " + condition['temp'] + " Degrees Fahrenheit in #" + region['city'] + " ," + region['region'] + " at " + currentTime + " #Weather"
+	except Exception,e:
+		print str(e)
+		message = "Error getting weather."
+
+	return message
 
 def sendTweet(tweet):
 	my_auth = twitter.OAuth(TOKEN,TOKEN_KEY,CON_SEC,CON_SEC_KEY)
