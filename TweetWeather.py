@@ -38,6 +38,7 @@ def sendTweet(tweet):
 
 if __name__ == '__main__':
     print getWeather()
-    #sendTweet(getWeather())
+    if "Error" not in getWeather():
+    	sendTweet(getWeather())
     print 'completed'
 
