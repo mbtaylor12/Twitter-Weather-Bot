@@ -1,16 +1,14 @@
 from weather import Weather
+import twitter
 import datetime
 
 #city can be zip code or city, state
-city = "24141"
+city = ""
 #TOKEN, TOKEN_KEY, CON_SEC, CON_SEC_KEY can all be found on your Twitter Application Page
 TOKEN = ""
 TOKEN_KEY = ""
 CON_SEC = ""
 CON_SEC_KEY = ""
-
-def sendTweet(message):
-	print "done"
 
 def getWeather():
 	weather = Weather()
@@ -22,10 +20,17 @@ def getWeather():
 
 	currentTime = now.strftime("%H:%M %m/%d/%Y")
 
-	return "It is currently " + condition['text'] + " and " + condition['temp'] + " Degrees Fahrenheit in " + region['city'] + "," + region['region'] + " at " + currentTime
+	return "It is currently " + condition['text'] + " and " + condition['temp'] + " Degrees Fahrenheit in #" + region['city'] + " ," + region['region'] + " at " + currentTime + " #Weather"
+
+def sendTweet(tweet):
+	my_auth = twitter.OAuth(TOKEN,TOKEN_KEY,CON_SEC,CON_SEC_KEY)
+	my_account = twitter.Twitter(auth=my_auth)
+	my_account.statuses.update(status=tweet)
+
+	print "done"
 
 if __name__ == '__main__':
-        print getWeather()
-        sendTweet("hi")
-        print 'completed'
+    print getWeather()
+    #sendTweet(getWeather())
+    print 'completed'
 
