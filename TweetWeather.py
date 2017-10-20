@@ -32,12 +32,17 @@ def getWeather():
 def sendTweet(tweet):
 	my_auth = twitter.OAuth(TOKEN,TOKEN_KEY,CON_SEC,CON_SEC_KEY)
 	my_account = twitter.Twitter(auth=my_auth)
-	my_account.statuses.update(status=tweet)
 
-	print "done"
+	try:
+		my_account.statuses.update(status=tweet)
+		tweetStatus = "Successfully tweeted."
+	except Exception,e:
+		print str(e)
+		tweetStatus = "Unable to send tweet."
+
+	print tweetStatus
 
 if __name__ == '__main__':
-    print getWeather()
     if "Error" not in getWeather():
     	sendTweet(getWeather())
     print 'completed'
