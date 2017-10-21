@@ -1,3 +1,8 @@
+"""
+TweetWeather.py
+Tweets the current weather conditions from any city on any Twitter Account.
+Just plug in your information.
+"""
 from weather import Weather
 import twitter
 import datetime
@@ -11,7 +16,8 @@ TOKEN_KEY=""
 CON_SEC=""
 CON_SEC_KEY=""
 def getWeather():
-
+	"""Returns the current weather conditions.
+	"""
 	try:
 		weather = Weather()
 		now = datetime.datetime.now()
@@ -33,6 +39,9 @@ def getWeather():
 	return message
 
 def sendTweet(tweet):
+	"""Tries to tweet your tweet.
+	:param tweet: The message to be tweeted.
+	"""
 	my_auth = twitter.OAuth(TOKEN,TOKEN_KEY,CON_SEC,CON_SEC_KEY)
 	my_account = twitter.Twitter(auth=my_auth)
 
