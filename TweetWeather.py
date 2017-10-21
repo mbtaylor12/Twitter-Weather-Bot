@@ -4,12 +4,12 @@ import datetime
 
 #CITY can be zip code or city, state
 CITY = ""
-#TOKEN, TOKEN_KEY, CON_SEC, CON_SEC_KEY can all be found on your Twitter Application Page
-TOKEN = ""
-TOKEN_KEY = ""
-CON_SEC = ""
-CON_SEC_KEY = ""
-
+#TOKEN, TOKEN_KEY, CON_SEC, CON_SEC_KEY are Twitter app keys.
+#They can all be found on your Twitter Application Page.
+TOKEN=""
+TOKEN_KEY=""
+CON_SEC=""
+CON_SEC_KEY=""
 def getWeather():
 
 	try:
@@ -22,10 +22,10 @@ def getWeather():
 
 		currentTime = now.strftime("%H:%M %m/%d/%Y")
 
-		message = "It is currently " + condition['text'] + " and " + 
-			condition['temp'] + " Degrees Fahrenheit in #" + region['city'] + 
-			" ," + region['region'] + " at " + currentTime + " #Weather"
-			
+		message = "It is currently " + condition['text'] + " and " + \
+			condition['temp'] + " Degrees Fahrenheit in #" + region['city'] \
+			+ " ," + region['region'] + " at " + currentTime + " #Weather"
+
 	except Exception,e:
 		print str(e)
 		message = "Error getting weather."
