@@ -22,7 +22,10 @@ def getWeather():
 
 		currentTime = now.strftime("%H:%M %m/%d/%Y")
 
-		message = "It is currently " + condition['text'] + " and " + condition['temp'] + " Degrees Fahrenheit in #" + region['city'] + " ," + region['region'] + " at " + currentTime + " #Weather"
+		message = "It is currently " + condition['text'] + " and " + 
+			condition['temp'] + " Degrees Fahrenheit in #" + region['city'] + 
+			" ," + region['region'] + " at " + currentTime + " #Weather"
+			
 	except Exception,e:
 		print str(e)
 		message = "Error getting weather."
