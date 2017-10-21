@@ -3,12 +3,12 @@ import twitter
 import datetime
 
 #CITY can be zip code or city, state
-CITY = "24141"
+CITY = ""
 #TOKEN, TOKEN_KEY, CON_SEC, CON_SEC_KEY can all be found on your Twitter Application Page
-TOKEN = "920684296612007937-PMEmsRJHNtuRKFSAccphgfFluKFqoAe"
-TOKEN_KEY = "gw7ma2yMFhmCkwk3n7NJNZIR8Buim6BASzWHS1tSdmQr3"
-CON_SEC = "ivWiS7DS4h2T4aAX0wpS3rhL4"
-CON_SEC_KEY = "yRgVxQWUtN3QtbmKUibquF8LzONbN0RJz4aMUHjqWfnm0cH7XM"
+TOKEN = ""
+TOKEN_KEY = ""
+CON_SEC = ""
+CON_SEC_KEY = ""
 
 def getWeather():
 
